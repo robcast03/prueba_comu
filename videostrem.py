@@ -34,11 +34,11 @@ def index():
 @app.route('/video_feed')
 def video_feed():
     return Response(gen_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
-@app.route('/start_streaming')
-def start_streaming():
-    global streaming
-    streaming = True
-    return render_template('index.html')
+@app.route('/ejecutar_codigo', methods=['POST'])
+def ejecutar_codigo():
+    # Aquí puedes colocar el código de Python que deseas ejecutar al presionar el botón
+    print("Código de Python ejecutado")
+    return "Código de Python ejecutado con éxito"
 if __name__=='__main__':
     app.run(debug=True)
 

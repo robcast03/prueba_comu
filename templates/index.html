@@ -12,7 +12,8 @@
         <img src="{{ url_for('video_feed') }}" width="50%"/>
     </div>
     <h2>Presiona el botón para ejecutar el código de Python</h1>
-        <br>
-        <a href="{{ url_for('start_streaming') }}">Start Streaming</a>
+        <form action="/ejecutar_codigo" method="post">
+            <input type="submit" value="Ejecutar Código">
+        </form>
 </body>
 </html>
