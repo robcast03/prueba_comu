@@ -1,6 +1,7 @@
+// Definir la función como global
 function enviarNumero() {
     var numero = document.getElementById("numero").value;
-    var url = 'http://192.168.0.100 :80/enviar_numero';
+    var url = 'http://192.168.0.102:80/enviar_numero';
     
     // Utiliza la función fetch para enviar la solicitud al servidor
     fetch(url, {
@@ -18,3 +19,6 @@ function enviarNumero() {
         console.error('Error:', error);
     });
 }
+
+// Asignar la función al objeto global (window)
+window.enviarNumero = enviarNumero;

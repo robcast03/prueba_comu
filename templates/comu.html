@@ -1,19 +1,35 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Enviar Número</title>
 </head>
 <body>
-    <h1>Enviar Número</h1>
-    <form id="miFormulario">
-        <label for="numero">Número:</label>
-        <input type="text" id="numero" name="numero" required>
-        <button type="button" onclick="enviarNumero()">Enviar</button>
-    </form>
 
-    <!-- Agrega la referencia al archivo JavaScript externo -->
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <h1>Bienvenido</h1>
+
+    <!-- Agrega un enlace que activará la función JavaScript al hacer clic -->
+    <a href="#" id="enviarNumero">Enviar Número</a>
+
+    <script>
+        document.getElementById('enviarNumero').addEventListener('click', function() {
+            // Realiza la solicitud POST al servidor al hacer clic
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'http://192.168.0.100/enviar_numero', true);
+            xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+            xhr.send(JSON.stringify({numero: 42}));
+
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    alert('Número enviado con éxito');
+                } else {
+                    alert('Error al enviar el número');
+                }
+            };
+        });
+    </script>
+
 </body>
 </html>
+
