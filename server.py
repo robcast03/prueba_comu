@@ -11,4 +11,5 @@ def enviar_numero():
     return 'Número recibido: {}'.format(numero)
 
 if __name__ == '__main__':
-    app.run(host='192.168.0.100', port=80)  # Ejecutar la aplicación en todas las interfaces en el puerto 80
+    app.run(host='192.168.0.163', port=80)  # Ejecutar la aplicación en todas las interfaces en el puerto 80
+
